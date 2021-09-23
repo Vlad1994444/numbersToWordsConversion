@@ -1,10 +1,6 @@
 package com.vladislav.conversion;
 
-import org.apache.poi.xwpf.usermodel.BreakType;
-
-import java.util.HashMap;
-
-public class Units{
+public class Units {
 
     public static final String ONE = "один";
     public static final String ONE_ANOTHER = "одна";
@@ -28,13 +24,12 @@ public class Units{
     public static final int NINE_NUMBER = 9;
 
 
-
     int units;
-    int count;
+    int trioOrder;
 
-    public Units(int units, int count) {
+    public Units(int units, int trioOrder) {
         this.units = units;
-        this.count = count;
+        this.trioOrder = trioOrder;
     }
 
 
@@ -44,32 +39,50 @@ public class Units{
 
     public String nameUnits() {
         StringBuilder result = new StringBuilder();
-        result.append(variantsOfNumbers(count));
+        result.append(variantsOfNumbers(trioOrder));
         return result.toString();
     }
 
-    public String variantsOfNumbers(int numberOfThousand) {
-        GiveNameToPartOfNumber name = new GiveNameToPartOfNumber(count, units);
-        String result = null;
+    public String variantsOfNumbers(int trio) {
+        GiveNameToPartOfNumber name = new GiveNameToPartOfNumber(trio, units);
+        String result;
         switch (units) {
             case ONE_NUMBER -> {
-                if (numberOfThousand == 2) {
+                if (trio == 2) {
                     result = ONE_ANOTHER + name.giveName();
                 } else {
                     result = ONE + name.giveName();
                 }
             }
-            case TWO_NUMBER ->{
-                if (numberOfThousand == 2) {
+            case TWO_NUMBER -> {
+                if (trio == 2) {
                     result = TWO_ANOTHER + name.giveName();
                 } else {
                     result = TWO + name.giveName();
                 }
             }
-            case THREE_NUMBER->{
-                    result = THREE + name.giveName();
+            case THREE_NUMBER -> {
+                result = THREE + name.giveName();
             }
-
+            case FOUR_NUMBER -> {
+                result = FOUR + name.giveName();
+            }
+            case FIVE_NUMBER -> {
+                result = FIVE + name.giveName();
+            }
+            case SIX_NUMBER -> {
+                result = SIX + name.giveName();
+            }
+            case SEVEN_NUMBER -> {
+                result = SEVEN + name.giveName();
+            }
+            case EIGHT_NUMBER -> {
+                result = EIGHT + name.giveName();
+            }
+            case NINE_NUMBER -> {
+                result = NINE + name.giveName();
+            }
+            default -> result = "";
         }
         return result;
     }

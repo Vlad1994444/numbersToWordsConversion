@@ -44,7 +44,7 @@ public class SpecialDozens {
         GiveNameToPartOfNumber name = new GiveNameToPartOfNumber(count, specialDozens);
         String result;
         fullMap(fromTenToNineteen);
-        result = fromTenToNineteen.get(specialDozens);
+        result = fromTenToNineteen.get(specialDozens)+name.giveName();
         return result;
     }
 

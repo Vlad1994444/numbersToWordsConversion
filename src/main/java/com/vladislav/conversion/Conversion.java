@@ -1,32 +1,32 @@
 package com.vladislav.conversion;
 
-public class Conversion extends Constants{
+public class Conversion{
 
     private static final int ONE_HUNDRED = 100;
     private static final int TEN = 10;
 
 
     int numberToConvert;
-    int count;
+    int trioOrder;
 
     public Conversion(int numberToConvert, int count) {
         this.numberToConvert = numberToConvert;
-        this.count = count;
+        this.trioOrder = count;
     }
 
     public int getNumberToConvert() {
         return numberToConvert;
     }
 
-    public int getCount() {
-        return count;
+    public int getTrioOrder() {
+        return trioOrder;
     }
 
     @Override
     public String toString() {
         return "Conversion{" +
                 "numberToConvert=" + numberToConvert +
-                ", count=" + count +
+                ", count=" + trioOrder +
                 '}';
     }
 
@@ -35,28 +35,21 @@ public class Conversion extends Constants{
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        GiveNameToPartOfNumber name = new GiveNameToPartOfNumber(count);
+        int hundreds = numberToConvert/ONE_HUNDRED;          //get amount of hundreds
+        int dozensAndUnits = numberToConvert%ONE_HUNDRED;   //get dozens and units
+        int units = dozensAndUnits%TEN;                        //get just units
+        int dozens = dozensAndUnits - units;                    //get just dozens
 
-        int hundreds = numberToConvert/ONE_HUNDRED;
-        int dozensAndUnits = numberToConvert%ONE_HUNDRED;
-        int units = dozensAndUnits%TEN;
-        int dozens = dozensAndUnits - units;
-
-//        if(hundreds!=0){
-//            stringBuilder.append(new Hundreds(hundreds).nameHundreds());
-//        }
-        stringBuilder.append(new Hundreds(hundreds).nameHundreds());
+        stringBuilder.append(new Hundreds(dozensAndUnits,hundreds, trioOrder).nameHundreds());
 
         if(dozensAndUnits>=20){
-            stringBuilder.append(new Dozens(units, dozens, count).nameDozens());
-            if(units!=0){
-                stringBuilder.append(new Units(units, count).nameUnits());
-            }
+            stringBuilder.append(new Dozens(units, dozens, trioOrder).nameDozens());
         }else if(dozensAndUnits>=10 & dozensAndUnits<20){
-            stringBuilder.append(new SpecialDozens(dozensAndUnits, count).nameSpecialDozens());
+            stringBuilder.append(new SpecialDozens(dozensAndUnits, trioOrder).nameSpecialDozens());
         }else{
-            stringBuilder.append(new Units(units, count).nameUnits());
+            stringBuilder.append(new Units(units, trioOrder).nameUnits());
         }
+
         return stringBuilder.toString();
     }
 }

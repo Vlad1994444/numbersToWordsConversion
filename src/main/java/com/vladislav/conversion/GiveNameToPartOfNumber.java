@@ -10,21 +10,26 @@ public class GiveNameToPartOfNumber {
     public static final String MILLION_ANOTHER = "миллиона";
     public static final String MILLION_ANOTHER_ANOTHER = "миллионов";
 
-    int count;
+    public static final String BILLION = "триллион";
+    public static final String BILLION_ANOTHER = "триллиона";
+    public static final String BILLION_ANOTHER_ANOTHER = "триллионов";
+
+
+    int trioOrder;
     int units;
 
-    public GiveNameToPartOfNumber(int count, int units) {
-        this.count = count;
+    public GiveNameToPartOfNumber(int trioOrder, int units) {
+        this.trioOrder = trioOrder;
         this.units = units;
     }
 
-    public GiveNameToPartOfNumber(int count) {
-        this.count = count;
+    public GiveNameToPartOfNumber(int trioOrder) {
+        this.trioOrder = trioOrder;
     }
 
     public String giveName(){
-        String result = null;
-        switch (count){
+        String result;
+        switch (trioOrder){
             /*
             problem. I can not write null because it is visible in output
              */
@@ -49,7 +54,7 @@ public class GiveNameToPartOfNumber {
                     result = MILLION_ANOTHER_ANOTHER;
                 }
             }
-            default -> result =  null;
+            default -> result =  "";
         }
         return result;
     }

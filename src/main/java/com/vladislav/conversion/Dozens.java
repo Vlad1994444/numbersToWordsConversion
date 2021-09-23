@@ -1,6 +1,5 @@
 package com.vladislav.conversion;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Dozens{
@@ -24,7 +23,7 @@ public class Dozens{
 
     int units;
     int dozens;
-    int count;
+    int trioOrder;
 
 //    int [] numbers = {TEN_NUMBER, ELEVEN_NUMBER, TWELVE_NUMBER, THIRTEEN_NUMBER, TWENTY_NUMBER, THIRTY_NUMBER,FORTY_NUMBER};
 //    String[] numberNames = {TEN, ELEVEN, TWELVE, THIRTEEN, TWENTY, THIRTY,FORTY};
@@ -34,22 +33,27 @@ public class Dozens{
         this.dozens = dozens;
     }
 
-    public Dozens(int units, int dozens, int count) {
+    public Dozens(int units, int dozens, int trioOrder) {
         this.units = units;
         this.dozens = dozens;
-        this.count = count;
+        this.trioOrder = trioOrder;
     }
 
-    public Dozens(int dozens, int count) {
+    public Dozens(int dozens, int trioOrder) {
         this.dozens = dozens;
-        this.count = count;
+        this.trioOrder = trioOrder;
     }
 
     public String nameDozens(){
 
+        GiveNameToPartOfNumber name = new GiveNameToPartOfNumber(trioOrder, dozens);
         String result;
         putValuesInMap(allDozens);
-        result = allDozens.get(dozens);
+        if(units==0){
+            result = allDozens.get(dozens)+name.giveName();
+        } else{
+            result = allDozens.get(dozens) + new Units(units, trioOrder).nameUnits();
+        }
         return result;
     }
 

@@ -12,11 +12,18 @@ public class Hundreds{
     public static final String EIGHT_HUNDRED = "восемьсот";
     public static final String NINE_HUNDRED = "девятьсот";
 
+    int dozensAndUnits;
     int hundreds;
-    int count;
+    int trioOrder;
 
     public Hundreds(int hundreds) {
         this.hundreds = hundreds;
+    }
+
+    public Hundreds(int dozensAndUnits, int hundreds, int trioOrder) {
+        this.dozensAndUnits = dozensAndUnits;
+        this.hundreds = hundreds;
+        this.trioOrder = trioOrder;
     }
 
     public int getHundreds() {
@@ -24,6 +31,8 @@ public class Hundreds{
     }
 
     public String nameHundreds() {
+
+        GiveNameToPartOfNumber name = new GiveNameToPartOfNumber(trioOrder, dozensAndUnits);
 
         String result = switch (hundreds) {
             case 1 -> ONE_HUNDRED;
@@ -37,6 +46,10 @@ public class Hundreds{
             case 9 -> NINE_HUNDRED;
             default -> "";
         };
-        return result;
+        if (dozensAndUnits == 0) {
+            return result+name.giveName();
+        }else{
+            return result;
+        }
     }
 }
