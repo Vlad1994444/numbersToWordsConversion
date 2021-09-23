@@ -23,35 +23,31 @@ public class GiveNameToPartOfNumber {
         this.units = units;
     }
 
-    public GiveNameToPartOfNumber(int trioOrder) {
-        this.trioOrder = trioOrder;
-    }
-
     public String giveName(){
-        String result;
+        String result = " ";
         switch (trioOrder){
             /*
-            problem. I can not write null because it is visible in output
+            problem. I can not write "null" because it is visible in output
              */
             case 1 -> result = "";
             case 2 -> {
                 if(units==1){
-                    result = THOUSAND;
+                    result += THOUSAND;
                 }
                 else if(units>=5 & units<=20 | units%10==0) {
-                    result = THOUSAND_ANOTHER;
+                    result += THOUSAND_ANOTHER;
                 }
                 else {
-                    result = THOUSAND_ANOTHER_ANOTHER;
+                    result += THOUSAND_ANOTHER_ANOTHER;
                 }
             }
             case 3 ->{
                 if(units==1){
-                    result = MILLION;
+                    result += MILLION;
                 }else if(units>=2 & units<=4){
-                    result = MILLION_ANOTHER;
+                    result += MILLION_ANOTHER;
                 } else{
-                    result = MILLION_ANOTHER_ANOTHER;
+                    result += MILLION_ANOTHER_ANOTHER;
                 }
             }
             default -> result =  "";

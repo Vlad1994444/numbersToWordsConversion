@@ -14,14 +14,6 @@ public class Conversion{
         this.trioOrder = count;
     }
 
-    public int getNumberToConvert() {
-        return numberToConvert;
-    }
-
-    public int getTrioOrder() {
-        return trioOrder;
-    }
-
     @Override
     public String toString() {
         return "Conversion{" +
@@ -40,14 +32,14 @@ public class Conversion{
         int units = dozensAndUnits%TEN;                        //get just units
         int dozens = dozensAndUnits - units;                    //get just dozens
 
-        stringBuilder.append(new Hundreds(dozensAndUnits,hundreds, trioOrder).nameHundreds());
+        stringBuilder.append(new Hundreds(dozensAndUnits,hundreds, trioOrder).nameHundreds()+" ");
 
         if(dozensAndUnits>=20){
-            stringBuilder.append(new Dozens(units, dozens, trioOrder).nameDozens());
+            stringBuilder.append(new Dozens(units, dozens, trioOrder).nameDozens()+" ");
         }else if(dozensAndUnits>=10 & dozensAndUnits<20){
-            stringBuilder.append(new SpecialDozens(dozensAndUnits, trioOrder).nameSpecialDozens());
+            stringBuilder.append(new SpecialDozens(dozensAndUnits, trioOrder).nameSpecialDozens()+" ");
         }else{
-            stringBuilder.append(new Units(units, trioOrder).nameUnits());
+            stringBuilder.append(new Units(units, trioOrder).nameUnits()+" ");
         }
 
         return stringBuilder.toString();

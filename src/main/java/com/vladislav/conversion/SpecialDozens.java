@@ -2,32 +2,12 @@ package com.vladislav.conversion;
 
 import java.util.HashMap;
 
+import static com.vladislav.conversion.Constants.*;
+
 public class SpecialDozens {
 
-    private static final String TEN  = "десять";
-    private static final int TEN_NUMBER = 10;
-    private static final String ELEVEN = "одиннадцать";
-    private static final int ELEVEN_NUMBER = 11;
-    private static final String TWELVE = "двенадцать";
-    private static final int TWELVE_NUMBER = 12;
-    private static final String THIRTEEN = "тринадцать";
-    private static final int THIRTEEN_NUMBER = 13;
-    private static final String FOURTEEN = "четырнадцать";
-    private static final int FOURTEEN_NUMBER = 14;
-    private static final String FIFTEEN = "пятнадцать";
-    private static final int FIFTEEN_NUMBER = 15;
-    private static final String SIXTEEN = "шестнадцать";
-    private static final int SIXTEEN_NUMBER = 16;
-    private static final String SEVENTEEN = "семнадцать";
-    private static final int SEVENTEEN_NUMBER = 17;
-    private static final String EIGHTEEN = "восемнадцать";
-    private static final int EIGHTEEN_NUMBER = 18;
-    private static final String NINETEEN = "девятнадцать";
-    private static final int NINETEEN_NUMBER = 19;
-
-
     int specialDozens;
-    int count;
+    int trioOrder;
 
     HashMap<Integer, String> fromTenToNineteen = new HashMap<>();
 
@@ -35,13 +15,13 @@ public class SpecialDozens {
         this.specialDozens = specialDozens;
     }
 
-    public SpecialDozens(int specialDozens, int count) {
+    public SpecialDozens(int specialDozens, int trioOrder) {
         this.specialDozens = specialDozens;
-        this.count = count;
+        this.trioOrder = trioOrder;
     }
 
     public String nameSpecialDozens(){
-        GiveNameToPartOfNumber name = new GiveNameToPartOfNumber(count, specialDozens);
+        GiveNameToPartOfNumber name = new GiveNameToPartOfNumber(trioOrder, specialDozens);
         String result;
         fullMap(fromTenToNineteen);
         result = fromTenToNineteen.get(specialDozens)+name.giveName();

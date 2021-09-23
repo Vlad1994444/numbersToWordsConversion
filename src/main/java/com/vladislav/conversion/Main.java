@@ -1,28 +1,22 @@
 package com.vladislav.conversion;
 
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Main{
-
-    private static final int ONE_THOUSAND = 1000;
+public class Main {
 
     public static void main(String[] args) {
-        int trioOrder = 0;
-        int number = 500600400;
-        int numberToConvert;
-        ArrayList<String>parts = new ArrayList<>();
-        StringBuilder stringBuilder = new StringBuilder();
 
-        while(number%ONE_THOUSAND>=1){
-            trioOrder++;
-            numberToConvert = number%ONE_THOUSAND;
-            number = number/1000;
-            System.out.println();
-            parts.add(new Conversion(numberToConvert, trioOrder).convert());
+        Convert convertNumber = new Convert();
+        System.out.println("Enter preferable number");
+        Scanner scanner = new Scanner(System.in);
+        if(scanner.hasNextInt()){
+            convertNumber.convert(scanner.nextInt());
+        }else {
+            System.out.println("Restart program to give valid enter");
         }
-        for(int i = parts.size()-1; i>=0; i--){
-            stringBuilder.append(parts.get(i));
-        }
-        System.out.println(stringBuilder);
+        scanner.close();
     }
 }

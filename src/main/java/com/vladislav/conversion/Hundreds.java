@@ -1,16 +1,8 @@
 package com.vladislav.conversion;
 
-public class Hundreds{
+import static com.vladislav.conversion.Constants.*;
 
-    public static final String ONE_HUNDRED = "сто";
-    public static final String TWO_HUNDRED = "двесте";
-    public static final String THREE_HUNDRED = "триста";
-    public static final String FOUR_HUNDRED = "четыреста";
-    public static final String FIVE_HUNDRED = "пятьсот";
-    public static final String SIX_HUNDRED = "шестьсот";
-    public static final String SEVEN_HUNDRED = "семьсот";
-    public static final String EIGHT_HUNDRED = "восемьсот";
-    public static final String NINE_HUNDRED = "девятьсот";
+public class Hundreds{
 
     int dozensAndUnits;
     int hundreds;
@@ -34,7 +26,7 @@ public class Hundreds{
 
         GiveNameToPartOfNumber name = new GiveNameToPartOfNumber(trioOrder, dozensAndUnits);
 
-        String result = switch (hundreds) {
+        String result =switch (hundreds) {
             case 1 -> ONE_HUNDRED;
             case 2 -> TWO_HUNDRED;
             case 3 -> THREE_HUNDRED;
