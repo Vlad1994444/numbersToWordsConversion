@@ -9,10 +9,10 @@ public class Convert {
     public Convert() {
     }
 
-    public String convert(int number) {
+    public String convert(long number) {
 
         int trioOrder = 0;
-        int numberToConvert;
+        long numberToConvert;
         ArrayList<String> parts = new ArrayList<>();
         StringBuilder stringBuilder = new StringBuilder();
 

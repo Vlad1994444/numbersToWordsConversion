@@ -11,10 +11,10 @@ public class Conversion{
     private static final int TEN = 10;
 
 
-    int numberToConvert;
+    long numberToConvert;
     int trioOrder;
 
-    public Conversion(int numberToConvert, int count) {
+    public Conversion(long numberToConvert, int count) {
         this.numberToConvert = numberToConvert;
         this.trioOrder = count;
     }
@@ -31,8 +31,8 @@ public class Conversion{
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        int hundreds = numberToConvert/ONE_HUNDRED;          //get amount of hundreds
-        int dozensAndUnits = numberToConvert%ONE_HUNDRED;   //get dozens and units
+        int hundreds = (int)numberToConvert/ONE_HUNDRED;          //get amount of hundreds
+        int dozensAndUnits = (int) numberToConvert%ONE_HUNDRED;   //get dozens and units
         int units = dozensAndUnits%TEN;                        //get just units
         int dozens = dozensAndUnits - units;                    //get just dozens
 
