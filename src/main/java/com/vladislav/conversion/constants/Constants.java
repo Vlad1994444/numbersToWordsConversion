@@ -1,4 +1,4 @@
-package com.vladislav.conversion;
+package com.vladislav.conversion.constants;
 
 public abstract class Constants {
 

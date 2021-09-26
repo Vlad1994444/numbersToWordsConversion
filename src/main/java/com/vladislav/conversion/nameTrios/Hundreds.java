@@ -1,6 +1,6 @@
-package com.vladislav.conversion;
+package com.vladislav.conversion.nameTrios;
 
-import static com.vladislav.conversion.Constants.*;
+import static com.vladislav.conversion.constants.Constants.*;
 
 public class Hundreds{
 
@@ -36,7 +36,7 @@ public class Hundreds{
             case 7 -> SEVEN_HUNDRED;
             case 8 -> EIGHT_HUNDRED;
             case 9 -> NINE_HUNDRED;
-            default -> "";
+            default ->"";
         };
         if (dozensAndUnits == 0) {
             return result+name.giveName();

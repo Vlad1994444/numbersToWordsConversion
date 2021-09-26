@@ -1,8 +1,8 @@
-package com.vladislav.conversion;
+package com.vladislav.conversion.nameTrios;
 
 import java.util.HashMap;
 
-import static com.vladislav.conversion.Constants.*;
+import static com.vladislav.conversion.constants.Constants.*;
 
 public class Dozens{
 

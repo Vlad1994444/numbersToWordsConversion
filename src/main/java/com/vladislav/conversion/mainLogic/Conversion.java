@@ -1,4 +1,9 @@
-package com.vladislav.conversion;
+package com.vladislav.conversion.mainLogic;
+
+import com.vladislav.conversion.nameTrios.Dozens;
+import com.vladislav.conversion.nameTrios.Hundreds;
+import com.vladislav.conversion.nameTrios.SpecialDozens;
+import com.vladislav.conversion.nameTrios.Units;
 
 public class Conversion{
 
@@ -23,7 +28,6 @@ public class Conversion{
     }
 
     public String convert(){
-
 
         StringBuilder stringBuilder = new StringBuilder();
 

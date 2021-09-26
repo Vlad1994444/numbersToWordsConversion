@@ -1,4 +1,4 @@
-package com.vladislav.conversion;
+package com.vladislav.conversion.nameTrios;
 
 public class GiveNameToPartOfNumber {
 

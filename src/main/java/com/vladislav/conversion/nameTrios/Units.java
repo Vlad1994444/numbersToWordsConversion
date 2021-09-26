@@ -1,6 +1,6 @@
-package com.vladislav.conversion;
+package com.vladislav.conversion.nameTrios;
 
-import static com.vladislav.conversion.Constants.*;
+import static com.vladislav.conversion.constants.Constants.*;
 
 public class Units {
 
