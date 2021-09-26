@@ -35,7 +35,7 @@ public class GiveNameToPartOfNumber {
             case 1 -> result = "";
             case 2 -> {
                 if (units == 0) {
-                    result = null;
+                    result = "";
                 } else if (units == 1) {
                     result += THOUSAND;
                 } else if (units >= 5 & units <= 20 | units % 10 == 0) {
