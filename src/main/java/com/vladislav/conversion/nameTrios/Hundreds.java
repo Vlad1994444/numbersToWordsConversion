@@ -2,7 +2,7 @@ package com.vladislav.conversion.nameTrios;
 
 import static com.vladislav.conversion.constants.Constants.*;
 
-public class Hundreds{
+public class Hundreds {
 
     int dozensAndUnits;
     int hundreds;
@@ -26,7 +26,7 @@ public class Hundreds{
 
         GiveNameToPartOfNumber name = new GiveNameToPartOfNumber(trioOrder, dozensAndUnits);
 
-        String result =switch (hundreds) {
+        String result = switch (hundreds) {
             case 1 -> ONE_HUNDRED;
             case 2 -> TWO_HUNDRED;
             case 3 -> THREE_HUNDRED;
@@ -36,11 +36,11 @@ public class Hundreds{
             case 7 -> SEVEN_HUNDRED;
             case 8 -> EIGHT_HUNDRED;
             case 9 -> NINE_HUNDRED;
-            default ->"";
+            default -> "";
         };
         if (dozensAndUnits == 0) {
-            return result+name.giveName();
-        }else{
+            return result + name.giveName();
+        } else {
             return result;
         }
     }

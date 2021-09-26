@@ -34,7 +34,9 @@ public class GiveNameToPartOfNumber {
              */
             case 1 -> result = "";
             case 2 -> {
-                if (units == 1) {
+                if (units == 0) {
+                    result = null;
+                } else if (units == 1) {
                     result += THOUSAND;
                 } else if (units >= 5 & units <= 20 | units % 10 == 0) {
                     result += THOUSAND_ANOTHER;
@@ -51,7 +53,9 @@ public class GiveNameToPartOfNumber {
     }
 
     public String chooseTheEnding(String forOne, String forTwoTillFour, String others, int units) {
-        if (units == 1) {
+        if (units == 0) {
+            return "";
+        } else if (units == 1) {
             return forOne;
         } else if (units >= 2 & units <= 4) {
             return forTwoTillFour;

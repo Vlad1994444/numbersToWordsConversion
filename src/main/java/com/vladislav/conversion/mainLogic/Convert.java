@@ -16,18 +16,23 @@ public class Convert {
         ArrayList<String> parts = new ArrayList<>();
         StringBuilder stringBuilder = new StringBuilder();
 
-        while (number % ONE_THOUSAND >= 1) {
+        while (number >= 1) {
             trioOrder++;
             numberToConvert = number % ONE_THOUSAND;
             number = number / 1000;
             parts.add(new Conversion(numberToConvert, trioOrder).convert());
         }
-
-        stringBuilder.append(parts.get(parts.size()-1).stripLeading());//deleting spaces before first part
-        for (int i = parts.size() - 2; i >= 1; i--) {
-            stringBuilder.append(parts.get(i));
+        if (parts.size() == 1) {
+            stringBuilder.append(parts.get(0).trim());
+        } else {
+            stringBuilder.append(parts.get(parts.size() - 1).stripLeading());//deleting spaces before first part
+            for (int i = parts.size() - 2; i >= 1; i--) {
+                if(!parts.get(i).isEmpty()){
+                    stringBuilder.append(parts.get(i));
+                }
+            }
+            stringBuilder.append(parts.get(0).stripTrailing());//deleting spaces after last part
         }
-        stringBuilder.append(parts.get(0).stripTrailing());//deleting spaces after last part
         return stringBuilder.toString();
     }
 }
