@@ -71,4 +71,20 @@ public abstract class Constants {
     public static final String EIGHT_HUNDRED = "восемьсот";
     public static final String NINE_HUNDRED = "девятьсот";
 
+    public static final String THOUSAND = "тысяча";
+    public static final String THOUSAND_ANOTHER = "тысяч";
+    public static final String THOUSAND_ANOTHER_ANOTHER = "тысячи";
+
+    public static final String MILLION = "миллион";
+    public static final String MILLION_ANOTHER = "миллиона";
+    public static final String MILLION_ANOTHER_ANOTHER = "миллионов";
+
+    public static final String BILLION = "миллиард";
+    public static final String BILLION_ANOTHER = "миллиарда";
+    public static final String BILLION_ANOTHER_ANOTHER = "миллиардов";
+
+    public static final String TRILLION = "триллион";
+    public static final String TRILLION_ANOTHER = "триллиона";
+    public static final String TRILLION_ANOTHER_ANOTHER = "триллионов";
+
 }

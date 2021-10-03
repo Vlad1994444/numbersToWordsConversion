@@ -18,8 +18,8 @@ public class Main {
         System.out.println("Enter preferable number");
         do{
             scanner = new Scanner(System.in);
-            if(scanner.hasNextLong()){
-                System.out.println(convertNumber.convert(scanner.nextLong()));
+            if(scanner.hasNextBigInteger()){
+                System.out.println(convertNumber.convert(scanner.nextBigInteger()));
                 nextStep.whatToDoNext();
             }else{
                 System.out.println("Restart program to give valid enter");

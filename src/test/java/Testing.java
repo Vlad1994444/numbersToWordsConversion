@@ -6,6 +6,7 @@ import org.junit.runners.Parameterized;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.regex.Pattern;
 public class Testing {
 
     private final String name;
-    private final int number;
+    private final BigInteger number;
 
     @Parameterized.Parameters
     public static Collection<Object[]> combos() {
@@ -27,14 +28,15 @@ public class Testing {
 
         Pattern numberPattern = Pattern.compile("\\d+");
 
-        List<Integer> numbers = new ArrayList<>();
+        List<BigInteger> numbers = new ArrayList<>();
         List<String> names = new ArrayList<>();
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src\\test\\java\\input.txt"))) {
             while ((line = bufferedReader.readLine()) != null) {
                 Matcher matcher = numberPattern.matcher(line);
                 if (matcher.find()) {
-                    numbers.add(Integer.parseInt(line));
+                    BigInteger a = new BigInteger(line);
+                    numbers.add(a);
                 } else {
                     names.add(line);
                 }
@@ -48,7 +50,7 @@ public class Testing {
         return args;
     }
 
-    public Testing(String name, int number) {
+    public Testing(String name, BigInteger number) {
         this.name = name;
         this.number = number;
     }
@@ -57,7 +59,7 @@ public class Testing {
     public void testOne() {
         Convert convert = new Convert();
         String str = name;
-        int numb = number;
+        BigInteger numb = number;
         Assert.assertEquals(str, convert.convert(numb));
     }
 }
